@@ -7,6 +7,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+//import { Feather } from '@expo/vector-icons';
 import colors from '../constants/colors';
 
 const styles = StyleSheet.create({
@@ -50,6 +51,7 @@ export default () => {
         <Text style={styles.text}>React Native by Example</Text>
         <Icon name="external-link" size={20} color={colors.blue} />
       </TouchableOpacity>
+
     </SafeAreaView>
   );
 };
