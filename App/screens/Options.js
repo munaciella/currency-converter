@@ -7,29 +7,35 @@ import { RowItem, RowSeparator } from '../components/RowItem';
 
 export default () => {
   return (
-    <SafeAreaView>
-        <ScrollView>
-      <RowItem
-        text="Themes"
-        onPress={() => alert('todo!')}
-        rightIcon={<Icon name="chevron-right" size={20} color={colors.blue} />}
-      />
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView>
+        <RowItem
+          text="Themes"
+          onPress={() => alert('todo!')}
+          rightIcon={
+            <Icon name="chevron-right" size={20} color={colors.blue} />
+          }
+        />
 
-      <RowSeparator />
+        <RowSeparator />
 
-      <RowItem
-        text="React Native Basics"
-        onPress={() => alert('todo!')}
-        rightIcon={<Icon name="external-link" size={20} color={colors.blue} />}
-      />
+        <RowItem
+          text="React Native Basics"
+          onPress={() => alert('todo!')}
+          rightIcon={
+            <Icon name="external-link" size={20} color={colors.blue} />
+          }
+        />
 
-      <RowSeparator />
+        <RowSeparator />
 
-      <RowItem
-        text="React Native by Example"
-        onPress={() => alert('todo!')}
-        rightIcon={<Icon name="external-link" size={20} color={colors.blue} />}
-      />
+        <RowItem
+          text="React Native by Example"
+          onPress={() => alert('todo!')}
+          rightIcon={
+            <Icon name="external-link" size={20} color={colors.blue} />
+          }
+        />
       </ScrollView>
     </SafeAreaView>
   );
