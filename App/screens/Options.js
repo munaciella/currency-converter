@@ -1,9 +1,13 @@
 import React from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView, Linking, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 //import { Feather } from '@expo/vector-icons';
 import colors from '../constants/colors';
 import { RowItem, RowSeparator } from '../components/RowItem';
+
+Linking.openURL(url).catch(() => {
+    Alert.
+})
 
 export default () => {
   return (
