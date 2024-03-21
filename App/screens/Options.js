@@ -27,7 +27,7 @@ export default () => {
 
         <RowItem
           text="React Native Basics"
-          onPress={() => alert('todo!')}
+          onPress={() => openURL('https://learn.handlebarlabs.com/p/react-native-basics-build-a-currency-converter')}
           rightIcon={
             <Icon name="external-link" size={20} color={colors.blue} />
           }
@@ -37,7 +37,7 @@ export default () => {
 
         <RowItem
           text="React Native by Example"
-          onPress={() => alert('todo!')}
+          onPress={() => openURL('https://reactnativebyexample.com')}
           rightIcon={
             <Icon name="external-link" size={20} color={colors.blue} />
           }
