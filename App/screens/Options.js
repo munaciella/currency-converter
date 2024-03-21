@@ -5,9 +5,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import colors from '../constants/colors';
 import { RowItem, RowSeparator } from '../components/RowItem';
 
-Linking.openURL(url).catch(() => {
-    Alert.
-})
+const openURL = (url) => {
+    return Linking.openURL(url).catch(() => {
+        Alert.alert('An error occurred', 'Could not open the url')
+    })
+}
 
 export default () => {
   return (
