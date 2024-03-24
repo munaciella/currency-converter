@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, StatusBar } from 'react-native';
+import { View, StyleSheet, StatusBar, Image } from 'react-native';
 import colors from '../constants/colors';
 
 const styles = StyleSheet.create({
@@ -13,6 +13,10 @@ export default () => {
     return (
         <View style={styles.container}>
             <StatusBar barStyle="light-content" backgroundColor={colors.blue}/>
+
+            <Image
+                source={require('../assets/images/background.png')}
+            />
         </View>
     )
 }
