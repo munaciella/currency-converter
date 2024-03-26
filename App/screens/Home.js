@@ -42,6 +42,16 @@ export default () => {
           resizeMode="contain"
         />
       </View>
+      <ConversionInput
+        text="USD"
+        value="123"
+        onButtonPress={() => alert("todo!")}
+      />
+      <ConversionInput
+        text="GBP"
+        value="123"
+        onButtonPress={() => alert("todo!")}
+      />
     </View>
   );
 };
