@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, StatusBar, Image, Dimensions } from 'react-native';
 import colors from '../constants/colors';
+import { ConversionInput } from '../components/ConversionInput';
 
 const screen = Dimensions.get('window');
 
