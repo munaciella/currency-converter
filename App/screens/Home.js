@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 20,
   },
   logoBackground: {
     width: screen.width * 0.45,
@@ -46,6 +47,8 @@ export default () => {
         text="USD"
         value="123"
         onButtonPress={() => alert("todo!")}
+        keyboardType="numeric"
+        onChangeText={text => console.log("text", text)}
       />
       <ConversionInput
         text="GBP"
