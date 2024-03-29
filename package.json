@@ -14,6 +14,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "date-fns": "^3.6.0",
     "eslint-config-handlebarlabs": "^0.0.6",
     "expo": "~50.0.11",
     "expo-status-bar": "~1.11.1",
