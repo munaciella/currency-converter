@@ -1,8 +1,16 @@
 import React from 'react';
-import { View, StyleSheet, StatusBar, Image, Dimensions, Text } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  StatusBar,
+  Image,
+  Dimensions,
+  Text,
+} from 'react-native';
 import colors from '../constants/colors';
 import { ConversionInput } from '../components/ConversionInput';
-import { format } from 'date-fns'
+import { format } from 'date-fns';
+import { Button } from '../components/Button';
 
 const screen = Dimensions.get('window');
 
@@ -28,23 +36,23 @@ const styles = StyleSheet.create({
   },
   textHeader: {
     color: colors.white,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 30,
     marginVertical: 20,
-    textAlign: "center"
+    textAlign: 'center',
   },
   text: {
     color: colors.white,
     fontSize: 14,
-    textAlign: "center",
+    textAlign: 'center',
   },
 });
 
 export default () => {
-  const baseCurrency = 'USD'
-  const quoteCurrency = 'GBP'
-  const conversionRate = 0.8345
-  const date = new Date()
+  const baseCurrency = 'USD';
+  const quoteCurrency = 'GBP';
+  const conversionRate = 0.8345;
+  const date = new Date();
 
   return (
     <View style={styles.container}>
@@ -66,19 +74,20 @@ export default () => {
       <ConversionInput
         text={baseCurrency}
         value="123"
-        onButtonPress={() => alert("todo!")}
+        onButtonPress={() => alert('todo!')}
         keyboardType="numeric"
-        onChangeText={text => console.log("text", text)}
+        onChangeText={(text) => console.log('text', text)}
       />
       <ConversionInput
         text={quoteCurrency}
         value="123"
         editable={false}
-        onButtonPress={() => alert("todo!")}
+        onButtonPress={() => alert('todo!')}
       />
       <Text style={styles.text}>
-      {`1 ${baseCurrency} = ${conversionRate} ${quoteCurrency} as of ${format(date, 'do MMMM yyyy')}.`}        
-</Text>
+        {`1 ${baseCurrency} = ${conversionRate} ${quoteCurrency} as of ${format(date, 'do MMMM yyyy')}.`}
+      </Text>
+      <Button text="Reverse Currencies" onPress={() => alert('todo!')}/>
     </View>
   );
 };
