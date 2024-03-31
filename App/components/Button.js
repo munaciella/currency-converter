@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
 export const Button = ({ onPress, text }) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <Image />
+      <Image source={require("../assets/images/reverse.png")}/>
         <Text>{text}</Text>
     </TouchableOpacity>
   );
