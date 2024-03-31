@@ -38,13 +38,16 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight: 'bold',
     fontSize: 30,
-    marginVertical: 20,
+    marginBottom: 20,
     textAlign: 'center',
   },
   text: {
     color: colors.white,
     fontSize: 14,
     textAlign: 'center',
+  },
+  inputContainer: {
+    marginBottom: 10,
   },
 });
 
@@ -71,6 +74,7 @@ export default () => {
       </View>
 
       <Text style={styles.textHeader}>Currency Converter</Text>
+      <View style={styles.inputContainer}>
       <ConversionInput
         text={baseCurrency}
         value="123"
@@ -84,6 +88,7 @@ export default () => {
         editable={false}
         onButtonPress={() => alert('todo!')}
       />
+      </View>
       <Text style={styles.text}>
         {`1 ${baseCurrency} = ${conversionRate} ${quoteCurrency} as of ${format(date, 'do MMMM yyyy')}.`}
       </Text>
