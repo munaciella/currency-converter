@@ -6,6 +6,7 @@ import {
   Image,
   Dimensions,
   Text,
+  ScrollView
 } from 'react-native';
 import colors from '../constants/colors';
 import { ConversionInput } from '../components/ConversionInput';
@@ -18,7 +19,10 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.blue,
     flex: 1,
-    justifyContent: 'center',
+    
+  },
+  content: {
+    paddingTop: screen.height * 0.2
   },
   logoContainer: {
     alignItems: 'center',
@@ -59,7 +63,9 @@ export default () => {
 
   return (
     <View style={styles.container}>
+      <ScrollView>
       <StatusBar barStyle="light-content" backgroundColor={colors.blue} />
+      <View style={styles.content}>
       <View style={styles.logoContainer}>
         <Image
           source={require('../assets/images/background.png')}
@@ -93,6 +99,9 @@ export default () => {
         {`1 ${baseCurrency} = ${conversionRate} ${quoteCurrency} as of ${format(date, 'do MMMM yyyy')}.`}
       </Text>
       <Button text="Reverse Currencies" onPress={() => alert('todo!')}/>
+      <View style={{height: screen.height}} />
+      </View>
+      </ScrollView>
     </View>
   );
 };
