@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect}from 'react';
 import {
   View,
   StyleSheet,
@@ -6,7 +6,8 @@ import {
   Image,
   Dimensions,
   Text,
-  ScrollView
+  ScrollView,
+  Keyboard
 } from 'react-native';
 import colors from '../constants/colors';
 import { ConversionInput } from '../components/ConversionInput';
@@ -61,9 +62,26 @@ export default () => {
   const conversionRate = 0.8345;
   const date = new Date();
 
+  const [scrollEnabled, setScrollEnabled] = useState(false)
+
+  useEffect(() => {
+    const showListener = Keyboard.addListener('keyboardDidShow', () => {
+      setScrollEnabled(true)
+    })
+
+    const hideListener = Keyboard.addListener('keyboardDidHide', () => {
+      setScrollEnabled(false)
+    })
+
+    return () => {
+      showListener.remove()
+      hideListener.remove()
+    }
+  }, [])
+
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView scrollEnabled={scrollEnabled}>
       <StatusBar barStyle="light-content" backgroundColor={colors.blue} />
       <View style={styles.content}>
       <View style={styles.logoContainer}>
