@@ -12,6 +12,7 @@ import colors from '../constants/colors';
 import { ConversionInput } from '../components/ConversionInput';
 import { format } from 'date-fns';
 import { Button } from '../components/Button';
+import { KeyboardSpacer } from '../components/KeyboardSpacer';
 
 const screen = Dimensions.get('window');
 
@@ -101,6 +102,7 @@ export default () => {
         {`1 ${baseCurrency} = ${conversionRate} ${quoteCurrency} as of ${format(date, 'do MMMM yyyy')}.`}
       </Text>
       <Button text="Reverse Currencies" onPress={() => alert('todo!')}/>
+      <KeyboardSpacer onToggle={(keyboardIsVisible) => setScrollEnabled(keyboardIsVisible)} />
       </View>
       </ScrollView>
     </View>
