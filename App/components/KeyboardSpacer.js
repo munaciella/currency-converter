@@ -9,11 +9,22 @@ const styles = StyleSheet.create({
   },
 });
 
-export const KeyboardSpacer = () => {
+export const KeyboardSpacer = ({onToggle}) => {
+    const [keyboardSpace, setKeyboardSpace] = useState(0)
+  useEffect(() => {
+    const showListener = Keyboard.addListener('keyboardDidShow', () => {
+        onToggle(true)
+    });
 
-    useEffect(() => {
-        const showListener = Keyboard.addListener()
-    }, [])
+    const hideListener = Keyboard.addListener('keyboardDidHide', () => {
+        onToggle(false)
+    });
 
-  return <View style={styles.container} />;
+    return () => {
+        showListener.remove()
+        hideListener.remove()
+    }
+  }, []);
+
+  return <View style={[styles.container, {height: keyboardSpace}]} />;
 };
