@@ -11,8 +11,14 @@ const styles = StyleSheet.create({
 
 export const KeyboardSpacer = ({onToggle}) => {
     const [keyboardSpace, setKeyboardSpace] = useState(0)
+
   useEffect(() => {
-    const showListener = Keyboard.addListener('keyboardDidShow', () => {
+    const showListener = Keyboard.addListener('keyboardDidShow', event => {
+        console.log(event)
+        const screenHeight = Dimensions.get('window').height
+        const endY = event.endCoordinates.screenY
+
+        setKeyboardSpace(screenHeight - endY)
         onToggle(true)
     });
 
