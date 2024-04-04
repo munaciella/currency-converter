@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     
   },
   content: {
-    paddingTop: screen.height * 0.2
+    paddingTop: screen.height * 0.1
   },
   logoContainer: {
     alignItems: 'center',
@@ -59,10 +59,11 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: "flex-end",
+    marginHorizontal: 20,
   },
 });
 
-export default () => {
+export default ({navigation}) => {
   const baseCurrency = 'USD';
   const quoteCurrency = 'GBP';
   const conversionRate = 0.8345;
@@ -76,7 +77,9 @@ export default () => {
       <StatusBar barStyle="light-content" backgroundColor={colors.blue} />
 
       <SafeAreaView style={styles.header}>
+        <TouchableOpacity onPress={() => navigation.push('Options')}>
       <Ionicons name="cog-sharp" size={32} color={colors.white} />
+      </TouchableOpacity>
       </SafeAreaView>
 
       <View style={styles.content}>
