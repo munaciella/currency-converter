@@ -6,8 +6,10 @@ import Options from '../screens/Options'
 
 const MainStack = createStackNavigator()
 const MainStackScreen = () => (
-    <MainStack.Navigator>
-        <MainStack.Screen name="Home" component={Home} />
+    <MainStack.Navigator 
+    // headerShown='false' initialRouteName="Options"
+    >
+        <MainStack.Screen name="Home" component={Home} options={{headerShown: false}}/>
         <MainStack.Screen name="Options" component={Options} />
 
     </MainStack.Navigator>
