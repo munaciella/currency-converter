@@ -7,12 +7,15 @@ import {
   Dimensions,
   Text,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native';
 import colors from '../constants/colors';
 import { ConversionInput } from '../components/ConversionInput';
 import { format } from 'date-fns';
 import { Button } from '../components/Button';
 import { KeyboardSpacer } from '../components/KeyboardSpacer';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 
 const screen = Dimensions.get('window');
 
@@ -54,6 +57,9 @@ const styles = StyleSheet.create({
   inputContainer: {
     marginBottom: 10,
   },
+  header: {
+    alignItems: "flex-end",
+  },
 });
 
 export default () => {
@@ -68,6 +74,11 @@ export default () => {
     <View style={styles.container}>
       <ScrollView scrollEnabled={scrollEnabled}>
       <StatusBar barStyle="light-content" backgroundColor={colors.blue} />
+
+      <SafeAreaView style={styles.header}>
+      <Ionicons name="cog-sharp" size={32} color={colors.white} />
+      </SafeAreaView>
+
       <View style={styles.content}>
       <View style={styles.logoContainer}>
         <Image
