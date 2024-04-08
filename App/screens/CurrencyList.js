@@ -2,7 +2,7 @@ import React from 'react';
 import { StatusBar, FlatList, View } from 'react-native';
 import colors from '../constants/colors';
 import currencies from '../data/currencies.json'
-import { RowItem } from '../components/RowItem';
+import { RowItem, RowSeparator } from '../components/RowItem';
 
 export default () => (
     <View style={{backgroundColor: colors.white}}>
@@ -17,6 +17,7 @@ export default () => (
     )
   }}
   keyExtractor={(item) => item}
+  ItemSeparatorComponent={() => <RowSeparator />}
   />
   </View>
 );
