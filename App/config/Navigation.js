@@ -9,7 +9,7 @@ const MainStack = createStackNavigator()
 const MainStackScreen = () => (
     <MainStack.Navigator 
     // headerShown='false' 
-    initialRouteName="CurrencyList"
+    //initialRouteName="CurrencyList"
     >
         <MainStack.Screen name="Home" component={Home} options={{headerShown: false}}/>
         <MainStack.Screen name="Options" component={Options} />
