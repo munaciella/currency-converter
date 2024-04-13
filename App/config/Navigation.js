@@ -34,7 +34,7 @@ const ModalStackScreen = () => (
         title: route.params && route.params.title,
         headerLeft: null,
         headerRight: () => (
-           <TouchableOpacity onPress={() => navigation.pop()} style={{paddingHorizontal: 16}}>
+           <TouchableOpacity onPress={() => navigation.pop()} style={{paddingHorizontal: 20}}>
             <Entypo name="cross" size={32} color={colors.blue} />
            </TouchableOpacity> 
         )

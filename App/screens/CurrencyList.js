@@ -6,7 +6,14 @@ import { RowItem, RowSeparator } from '../components/RowItem';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 const styles = StyleSheet.create({
-
+    icon: {
+        width: 30,
+        height: 30,
+        backgroundColor: colors.blue,
+        borderRadius: 15,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
 })
 
 export default ({navigation}) => {
