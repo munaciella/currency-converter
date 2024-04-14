@@ -64,10 +64,15 @@ const styles = StyleSheet.create({
 });
 
 export default ({navigation}) => {
-  const baseCurrency = 'USD';
-  const quoteCurrency = 'GBP';
+  let baseCurrency = 'USD';
+  let quoteCurrency = 'GBP';
   const conversionRate = 0.8345;
   const date = new Date();
+
+  const swapCurrencies = () => {
+    baseCurrency = quoteCurrency
+    quoteCurrency = baseCurrency
+  }
 
   const [scrollEnabled, setScrollEnabled] = useState(false)
 
