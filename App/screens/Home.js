@@ -64,14 +64,16 @@ const styles = StyleSheet.create({
 });
 
 export default ({navigation}) => {
-  let baseCurrency = 'USD';
-  let quoteCurrency = 'GBP';
+  //let baseCurrency = 'USD';
+  //let quoteCurrency = 'GBP';
+  const [baseCurrency, setBaseCurrency] = useState('USD')
+  const [quoteCurrency, setQuoteCurrency] = useState('GBP')
   const conversionRate = 0.8345;
   const date = new Date();
 
   const swapCurrencies = () => {
-    baseCurrency = quoteCurrency
-    quoteCurrency = baseCurrency
+    setBaseCurrency(quoteCurrency)
+    setQuoteCurrency(baseCurrency)
   }
 
   const [scrollEnabled, setScrollEnabled] = useState(false)
@@ -120,7 +122,7 @@ export default ({navigation}) => {
       <Text style={styles.text}>
         {`1 ${baseCurrency} = ${conversionRate} ${quoteCurrency} as of ${format(date, 'do MMMM yyyy')}.`}
       </Text>
-      <Button text="Reverse Currencies" onPress={() => alert('todo!')}/>
+      <Button text="Reverse Currencies" onPress={() => swapCurrencies()}/>
       <KeyboardSpacer onToggle={(keyboardIsVisible) => setScrollEnabled(keyboardIsVisible)} />
       </View>
       </ScrollView>
