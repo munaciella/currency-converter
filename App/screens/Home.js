@@ -113,7 +113,9 @@ export default ({navigation}) => {
       />
       <ConversionInput
         text={quoteCurrency}
-        value="123"
+        value={
+          value && `${parseFloat(value) * conversionRate}`
+        }
         onButtonPress={() => navigation.push('CurrencyList', {title: 'Quote Currency', activeCurrency: quoteCurrency})}
         editable={false}
       />
