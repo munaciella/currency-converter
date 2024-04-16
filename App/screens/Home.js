@@ -64,10 +64,9 @@ const styles = StyleSheet.create({
 });
 
 export default ({navigation}) => {
-  //let baseCurrency = 'USD';
-  //let quoteCurrency = 'GBP';
   const [baseCurrency, setBaseCurrency] = useState('USD')
   const [quoteCurrency, setQuoteCurrency] = useState('GBP')
+  const [value, setValue] = useState('100')
   const conversionRate = 0.8345;
   const date = new Date();
 
@@ -107,9 +106,9 @@ export default ({navigation}) => {
       <View style={styles.inputContainer}>
       <ConversionInput
         text={baseCurrency}
-        value="123"
+        value={value}
         onButtonPress={() => navigation.push('CurrencyList', {title: 'Base Currency', activeCurrency: baseCurrency})}
-        onChangeText={(text) => console.log('text', text)}
+        onChangeText={(text) => setValue(text)}
         keyboardType="numeric"
       />
       <ConversionInput
