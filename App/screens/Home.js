@@ -110,7 +110,7 @@ export default ({ navigation }) => {
                 navigation.push('CurrencyList', {
                   title: 'Base Currency',
                   activeCurrency: baseCurrency,
-                  onChange
+                  onChange: (currency) => setBaseCurrency(currency)
                 })
               }
               onChangeText={(text) => setValue(text)}
@@ -125,6 +125,7 @@ export default ({ navigation }) => {
                 navigation.push('CurrencyList', {
                   title: 'Quote Currency',
                   activeCurrency: quoteCurrency,
+                  onChange: (currency) => setBaseCurrency(currency)
                 })
               }
               editable={false}
