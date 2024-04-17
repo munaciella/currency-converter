@@ -125,7 +125,7 @@ export default ({ navigation }) => {
                 navigation.push('CurrencyList', {
                   title: 'Quote Currency',
                   activeCurrency: quoteCurrency,
-                  onChange: (currency) => setBaseCurrency(currency)
+                  onChange: (currency) => setQuoteCurrency(currency)
                 })
               }
               editable={false}

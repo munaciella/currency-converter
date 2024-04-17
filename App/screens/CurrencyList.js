@@ -36,7 +36,9 @@ export default ({ navigation, route = {} }) => {
             <RowItem
               text={item}
               onPress={() => {
-                params.onChange && params.onChange(item)
+                if (params.onChange) {
+                    params.onChange(item)
+                } 
                 navigation.pop()
               }}
               rightIcon={
