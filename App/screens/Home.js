@@ -1,4 +1,4 @@
-import React, {useState}from 'react';
+import React, { useState } from 'react';
 import {
   View,
   StyleSheet,
@@ -23,10 +23,9 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.blue,
     flex: 1,
-    
   },
   content: {
-    paddingTop: screen.height * 0.1
+    paddingTop: screen.height * 0.1,
   },
   logoContainer: {
     alignItems: 'center',
@@ -58,74 +57,89 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   header: {
-    alignItems: "flex-end",
+    alignItems: 'flex-end',
     marginHorizontal: 20,
   },
 });
 
-export default ({navigation}) => {
-  const [baseCurrency, setBaseCurrency] = useState('USD')
-  const [quoteCurrency, setQuoteCurrency] = useState('GBP')
-  const [value, setValue] = useState('100')
+export default ({ navigation }) => {
+  const [baseCurrency, setBaseCurrency] = useState('USD');
+  const [quoteCurrency, setQuoteCurrency] = useState('GBP');
+  const [value, setValue] = useState('100');
   const conversionRate = 0.8345;
   const date = new Date();
 
   const swapCurrencies = () => {
-    setBaseCurrency(quoteCurrency)
-    setQuoteCurrency(baseCurrency)
-  }
+    setBaseCurrency(quoteCurrency);
+    setQuoteCurrency(baseCurrency);
+  };
 
-  const [scrollEnabled, setScrollEnabled] = useState(false)
+  const [scrollEnabled, setScrollEnabled] = useState(false);
 
   return (
     <View style={styles.container}>
       <ScrollView scrollEnabled={scrollEnabled}>
-      <StatusBar barStyle="light-content" backgroundColor={colors.blue} />
+        <StatusBar barStyle="light-content" backgroundColor={colors.blue} />
 
-      <SafeAreaView style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.push('Options')}>
-      <Ionicons name="cog-sharp" size={32} color={colors.white} />
-      </TouchableOpacity>
-      </SafeAreaView>
+        <SafeAreaView style={styles.header}>
+          <TouchableOpacity onPress={() => navigation.push('Options')}>
+            <Ionicons name="cog-sharp" size={32} color={colors.white} />
+          </TouchableOpacity>
+        </SafeAreaView>
 
-      <View style={styles.content}>
-      <View style={styles.logoContainer}>
-        <Image
-          source={require('../assets/images/background.png')}
-          style={styles.logoBackground}
-          resizeMode="contain"
-        />
-        <Image
-          source={require('../assets/images/logo.png')}
-          style={styles.logo}
-          resizeMode="contain"
-        />
-      </View>
+        <View style={styles.content}>
+          <View style={styles.logoContainer}>
+            <Image
+              source={require('../assets/images/background.png')}
+              style={styles.logoBackground}
+              resizeMode="contain"
+            />
+            <Image
+              source={require('../assets/images/logo.png')}
+              style={styles.logo}
+              resizeMode="contain"
+            />
+          </View>
 
-      <Text style={styles.textHeader}>Currency Converter</Text>
-      <View style={styles.inputContainer}>
-      <ConversionInput
-        text={baseCurrency}
-        value={value}
-        onButtonPress={() => navigation.push('CurrencyList', {title: 'Base Currency', activeCurrency: baseCurrency})}
-        onChangeText={(text) => setValue(text)}
-        keyboardType="numeric"
-      />
-      <ConversionInput
-        text={quoteCurrency}
-        value={
-          value && `${parseFloat(value) * conversionRate}`
-        }
-        onButtonPress={() => navigation.push('CurrencyList', {title: 'Quote Currency', activeCurrency: quoteCurrency})}
-        editable={false}
-      />
-      </View>
-      <Text style={styles.text}>
-        {`1 ${baseCurrency} = ${conversionRate} ${quoteCurrency} as of ${format(date, 'do MMMM yyyy')}.`}
-      </Text>
-      <Button text="Reverse Currencies" onPress={() => swapCurrencies()}/>
-      <KeyboardSpacer onToggle={(keyboardIsVisible) => setScrollEnabled(keyboardIsVisible)} />
-      </View>
+          <Text style={styles.textHeader}>Currency Converter</Text>
+          <View style={styles.inputContainer}>
+            <ConversionInput
+              text={baseCurrency}
+              value={value}
+              onButtonPress={() =>
+                navigation.push('CurrencyList', {
+                  title: 'Base Currency',
+                  activeCurrency: baseCurrency,
+                  onChange
+                })
+              }
+              onChangeText={(text) => setValue(text)}
+              keyboardType="numeric"
+            />
+            <ConversionInput
+              text={quoteCurrency}
+              value={
+                value && `${(parseFloat(value) * conversionRate).toFixed(2)}`
+              }
+              onButtonPress={() =>
+                navigation.push('CurrencyList', {
+                  title: 'Quote Currency',
+                  activeCurrency: quoteCurrency,
+                })
+              }
+              editable={false}
+            />
+          </View>
+          <Text style={styles.text}>
+            {`1 ${baseCurrency} = ${conversionRate} ${quoteCurrency} as of ${format(date, 'do MMMM yyyy')}.`}
+          </Text>
+          <Button text="Reverse Currencies" onPress={() => swapCurrencies()} />
+          <KeyboardSpacer
+            onToggle={(keyboardIsVisible) =>
+              setScrollEnabled(keyboardIsVisible)
+            }
+          />
+        </View>
       </ScrollView>
     </View>
   );
