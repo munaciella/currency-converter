@@ -1,6 +1,12 @@
-import {createContext} from 'react'
+import React, {createContext} from 'react'
 
 export const ConversionContext = createContext()
 
-// ConversionContext.Provider
-// ConversionContext.Consumer
+export const ConversionContextProvider = ({children}) => {
+
+    return (
+        <ConversionContext.Provider value="this is an example">
+            {children}
+        </ConversionContext.Provider>
+    )
+}
