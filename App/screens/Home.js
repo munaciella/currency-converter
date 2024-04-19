@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   View,
   StyleSheet,
@@ -16,6 +16,7 @@ import { Button } from '../components/Button';
 import { KeyboardSpacer } from '../components/KeyboardSpacer';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import { ConversionContext } from '../util/ConversionContext';
 
 const screen = Dimensions.get('window');
 
@@ -63,16 +64,11 @@ const styles = StyleSheet.create({
 });
 
 export default ({ navigation }) => {
-  const [baseCurrency, setBaseCurrency] = useState('USD');
-  const [quoteCurrency, setQuoteCurrency] = useState('GBP');
   const [value, setValue] = useState('100');
   const conversionRate = 0.8345;
   const date = new Date();
-
-  const swapCurrencies = () => {
-    setBaseCurrency(quoteCurrency);
-    setQuoteCurrency(baseCurrency);
-  };
+  const { baseCurrency, quoteCurrency, swapCurrencies, setBaseCurrency, setQuoteCurrency } =
+    useContext(ConversionContext);
 
   const [scrollEnabled, setScrollEnabled] = useState(false);
 
@@ -110,7 +106,7 @@ export default ({ navigation }) => {
                 navigation.push('CurrencyList', {
                   title: 'Base Currency',
                   activeCurrency: baseCurrency,
-                  onChange: (currency) => setBaseCurrency(currency)
+                  onChange: (currency) => setBaseCurrency(currency),
                 })
               }
               onChangeText={(text) => setValue(text)}
@@ -125,7 +121,7 @@ export default ({ navigation }) => {
                 navigation.push('CurrencyList', {
                   title: 'Quote Currency',
                   activeCurrency: quoteCurrency,
-                  onChange: (currency) => setQuoteCurrency(currency)
+                  onChange: (currency) => setQuoteCurrency(currency),
                 })
               }
               editable={false}
