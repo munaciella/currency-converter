@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   StatusBar,
   FlatList,
@@ -10,6 +10,7 @@ import colors from '../constants/colors';
 import currencies from '../data/currencies.json';
 import { RowItem, RowSeparator } from '../components/RowItem';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { ConversionContext } from '../util/ConversionContext';
 
 const styles = StyleSheet.create({
   icon: {
@@ -24,6 +25,8 @@ const styles = StyleSheet.create({
 
 export default ({ navigation, route = {} }) => {
   const params = route.params || {};
+  const { setBaseCurrency, setQuoteCurrency, baseCurrency, quoteCurrency } =
+    useContext(ConversionContext);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.white }}>
@@ -31,25 +34,32 @@ export default ({ navigation, route = {} }) => {
       <FlatList
         data={currencies}
         renderItem={({ item }) => {
-          const selected = params.activeCurrency === item;
-          return (
-            <RowItem
-              text={item}
-              onPress={() => {
-                if (params.onChange) {
-                    params.onChange(item)
-                } 
-                navigation.pop()
-              }}
-              rightIcon={
-                selected && (
-                  <View style={styles.icon}>
-                    <FontAwesome5 name="check" size={20} color={colors.white} />
-                  </View>
-                )
-              }
-            />
-          );
+          let selected = false;
+          if (params.isBaseCurrency && item === baseCurrency)
+            return (
+              <RowItem
+                text={item}
+                onPress={() => {
+                  if (params.isBaseCurrency) {
+                    setBaseCurrency(item);
+                  } else {
+                    setQuoteCurrency(item);
+                  }
+                  navigation.pop();
+                }}
+                rightIcon={
+                  selected && (
+                    <View style={styles.icon}>
+                      <FontAwesome5
+                        name="check"
+                        size={20}
+                        color={colors.white}
+                      />
+                    </View>
+                  )
+                }
+              />
+            );
         }}
         keyExtractor={(item) => item}
         ItemSeparatorComponent={() => <RowSeparator />}
