@@ -1,3 +1,3 @@
 export const api = () => {
-    return Promise.resolve({})
-}
+  return Promise.resolve({ test: true });
+};
