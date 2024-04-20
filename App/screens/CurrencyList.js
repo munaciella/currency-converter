@@ -35,7 +35,12 @@ export default ({ navigation, route = {} }) => {
         data={currencies}
         renderItem={({ item }) => {
           let selected = false;
-          if (params.isBaseCurrency && item === baseCurrency)
+          if (params.isBaseCurrency && item === baseCurrency) {
+            selected = true
+          } else if (!params.isBaseCurrency && item === quoteCurrency) {
+            selected = true
+          }
+
             return (
               <RowItem
                 text={item}
