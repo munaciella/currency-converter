@@ -1,3 +1,5 @@
+import {format} from 'date-fns'
+
 const SAMPLE_RATES = {
     AUD: 1.6164,
     BGN: 1.9558,
@@ -45,5 +47,8 @@ export const api = (_path = "") => {
 
     const baseCurrency = _path.split('base=')[1]
 
-  return Promise.resolve({ test: true });
+  return Promise.resolve({ 
+    base: baseCurrency,
+    date: format(new Date(), '')
+   });
 };
