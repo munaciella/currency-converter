@@ -8,6 +8,7 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
+  ActivityIndicator
 } from 'react-native';
 import colors from '../constants/colors';
 import { ConversionInput } from '../components/ConversionInput';
@@ -100,7 +101,9 @@ export default ({ navigation }) => {
           <Text style={styles.textHeader}>Currency Converter</Text>
           <View style={styles.inputContainer}>
 
-            {!isLoading && (
+            {isLoading ? (
+              <ActivityIndicator color={colors.white} size="large" />
+            ) : (
               <>
               <ConversionInput
                 text={baseCurrency}
