@@ -9,6 +9,9 @@
     "web": "expo start --web",
     "lint": "eslint ."
   },
+  "keywords": [],
+  "author": "Francesco",
+  "license": "MIT",
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
