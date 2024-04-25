@@ -1,8 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { api } from './api';
 import { Alert } from 'react-native';
-import { se } from 'date-fns/locale';
-import { set } from 'date-fns';
 
 export const ConversionContext = createContext();
 
@@ -24,7 +22,7 @@ export const ConversionContextProvider = ({ children }) => {
         setRates(response.rates);
       })
       .catch((error) => {
-        Alert.alert('Sorry, something went wrong.', error.message);
+        Alert.alert('Sorry, something went wrong!', error.message);
       })
       .finally(() => {
         setIsLoading(false);
@@ -57,3 +55,5 @@ export const ConversionContextProvider = ({ children }) => {
     </ConversionContext.Provider>
   );
 };
+
+
