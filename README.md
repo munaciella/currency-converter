@@ -14,14 +14,37 @@ Welcome to the Currency Converter app! This app allows you to easily convert cur
 1. Make sure you have Node.js and npm installed on your machine.
 2. Clone this repository to your local machine.
 3. Navigate to the project directory in your terminal.
-4. Run `npm install` to install all the necessary dependencies.
+4. Run the following command to install all the necessary dependencies:
+
+```bash
+npm install
+```
 
 ## Usage
 
-- To start the app on your local machine, run `npm start`.
-- To run the app on an Android emulator/device, use `npm run android`.
-- To run the app on an iOS emulator/device, use `npm run ios`.
-- To run the app in a web browser, use `npm run web`.
+- To start the app on your local machine, run the following command:
+
+```bash
+npm start
+```
+
+- To run the app on an Android emulator/device, use the following command:
+
+```bash
+npm run android
+```
+
+- To run the app on an iOS emulator/device, use the following command:
+
+```bash
+npm run ios
+```
+
+- To run the app in a web browser, use the following command:
+
+```bash
+npm run web
+```
 
 ## Dependencies
 
