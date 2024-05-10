@@ -11,10 +11,7 @@ import { ConversionContextProvider } from '../util/ConversionContext';
 
 const MainStack = createStackNavigator();
 const MainStackScreen = () => (
-  <MainStack.Navigator
-  // headerShown='false'
-  //initialRouteName="CurrencyList"
-  >
+  <MainStack.Navigator>
     <MainStack.Screen
       name="Home"
       component={Home}
@@ -27,7 +24,11 @@ const MainStackScreen = () => (
 const ModalStack = createStackNavigator();
 const ModalStackScreen = () => (
   <ModalStack.Navigator screenOptions={{ presentation: 'modal' }}>
-    <ModalStack.Screen name="Main" component={MainStackScreen} options={{ headerShown: false }}/>
+    <ModalStack.Screen
+      name="Main"
+      component={MainStackScreen}
+      options={{ headerShown: false }}
+    />
     <ModalStack.Screen
       name="CurrencyList"
       component={CurrencyList}
@@ -35,10 +36,13 @@ const ModalStackScreen = () => (
         title: route.params && route.params.title,
         headerLeft: null,
         headerRight: () => (
-           <TouchableOpacity onPress={() => navigation.pop()} style={{paddingHorizontal: 20}}>
+          <TouchableOpacity
+            onPress={() => navigation.pop()}
+            style={{ paddingHorizontal: 20 }}
+          >
             <Entypo name="cross" size={32} color={colors.blue} />
-           </TouchableOpacity> 
-        )
+          </TouchableOpacity>
+        ),
       })}
     />
   </ModalStack.Navigator>
@@ -47,7 +51,7 @@ const ModalStackScreen = () => (
 export default () => (
   <NavigationContainer>
     <ConversionContextProvider>
-    <ModalStackScreen />
+      <ModalStackScreen />
     </ConversionContextProvider>
   </NavigationContainer>
 );

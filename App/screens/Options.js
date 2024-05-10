@@ -1,7 +1,6 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, Linking, Alert, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-//import { Feather } from '@expo/vector-icons';
 import colors from '../constants/colors';
 import { RowItem, RowSeparator } from '../components/RowItem';
 
