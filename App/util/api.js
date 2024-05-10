@@ -61,3 +61,36 @@ export const api = (_path = '') => {
   });
 };
 
+// import axios from 'axios';
+// import { format } from 'date-fns';
+
+// export const api = (_path = '') => {
+//   const [path, queryParams] = _path.split('?');
+//   if (path.length === 0) {
+//     return Promise.reject(new Error('Path is required.'));
+//   }
+
+//   if (path !== '/latest') {
+//     return Promise.reject(new Error('Invalid path.'));
+//   }
+
+//   const baseCurrency = queryParams ? queryParams.split('base=')[1] : 'EUR'; // Default base currency to EUR if not provided
+
+//   const API_URL = `https://api.example.com/latest?base=${baseCurrency}`;
+
+//   return axios.get(API_URL)
+//     .then(response => {
+//       const responseData = response.data;
+//       return {
+//         base: responseData.base,
+//         date: format(new Date(responseData.date), 'yyyy-MM-dd'),
+//         rates: responseData.rates,
+//       };
+//     })
+//     .catch(error => {
+//       console.error('Error fetching currency rates:', error);
+//       return Promise.reject(error);
+//     });
+// };
+
+
